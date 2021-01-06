@@ -1,14 +1,16 @@
 .post {
     background-color: white;
+    
     max-width: 500px;
     border: 1px solid lightgray;
-    margin-bottom: 45px;   
+    margin-bottom: 30px;   
+    margin-top: 15px;
 }
 
 .post__image {
     width: 100%;
-    object-fit: contain;
-    border-top: 1px solid lightgrey ;
+    object-fit:contain;
+    border-top:1px solid lightgrey ;
      border-bottom: 1px solid lightgray;
 }
 .post__text {
@@ -21,4 +23,5 @@
 }
 .post__avatar {
     margin-right: 10px;
+    text-align: center;
 }
