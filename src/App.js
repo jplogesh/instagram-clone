@@ -5,7 +5,7 @@ import './App.css';
 import { db,auth } from './firebase.js';
 import Post from './Post.js';
 import { Button, Input } from '@material-ui/core';
-
+import ImageUpload from './ImageUpload';
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -99,6 +99,14 @@ useEffect(() => {
     return (
       
       <div className="app"> 
+       
+
+            {user?.displayName ? (
+           <ImageUpload username={user.displayName}/>
+           ): (
+             <h3>Login to Upload</h3>
+           )}
+
         <Modal
         open={OpenSignIn}
        onClose={()=>setOpenSignIn(false)} >
