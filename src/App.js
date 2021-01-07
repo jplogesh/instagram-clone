@@ -32,7 +32,7 @@ function App() {
   const [modalStyle]=useState(getModalStyle);
   const [posts, setPosts] =useState([]);
   const [open, setOpen] =useState(false);
-  const[openSignIn,setOpenSignIn] =useState(false); 
+  const[OpenSignIn,setOpenSignIn] =useState(false); 
   const [username,setUsername]=useState('');
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
@@ -100,14 +100,14 @@ useEffect(() => {
       
       <div className="app"> 
         <Modal
-        open={openSignIn}
+        open={OpenSignIn}
        onClose={()=>setOpenSignIn(false)} >
        
           <div style={modalStyle} className={classes.paper}>
            <form className="app__signup">
            <center>
            <img  className="app__headerImage" src="in2.jfif" alt=""></img> </center>
-           <center>
+           <center className="app__signup__btn">
            
              <Input
               placeholder='username'
@@ -127,7 +127,7 @@ useEffect(() => {
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 />
-               <Button  type='submit' onClick = {SignUp}>Sign Up</Button>
+               <Button  type='submit' onClick = {SignIn}>SignIn</Button>
                 </center>
                   </form>
                 
