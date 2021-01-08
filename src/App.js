@@ -6,6 +6,8 @@ import { db,auth } from './firebase.js';
 import Post from './Post.js';
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './ImageUpload';
+import InstagramEmbed from 'react-instagram-embed';
+
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -101,21 +103,18 @@ useEffect(() => {
       <div className="app"> 
        
 
-            {user?.displayName ? (
-           <ImageUpload username={user.displayName}/>
-           ): (
-             <h3>Login to Upload</h3>
-           )}
-
+            
         <Modal
         open={OpenSignIn}
        onClose={()=>setOpenSignIn(false)} >
        
           <div style={modalStyle} className={classes.paper}>
-           <form className="app__signup">
+           <form >
+             
            <center>
-           <img  className="app__headerImage" src="in2.jfif" alt=""></img> </center>
-           <center className="app__signup__btn">
+             <div className = "app__header"></div>
+           <img  className="app__headerImage" src="new1.png" alt=""></img> 
+            
            
              <Input
               placeholder='username'
@@ -126,7 +125,7 @@ useEffect(() => {
              <Input
                placeholder='email'
                type= 'text'
-               value={email}
+                value={email}
                onChange={(e)=>setEmail(e.target.value)}
                />
               <Input 
@@ -143,34 +142,68 @@ useEffect(() => {
                  
                </Modal> 
       
-      <div className="app__header">
+               <div className="app__header">
       
-      <img  className="app__headerImage" src="insta logo.png" alt=""></img> 
+                 <img  className="app__headerImage" src="new1.png" alt=""></img> 
       
        
-       { user ? (
-         <Button onClick={()=>auth.signOut()}>Logout</Button>
-          ):
-         (
-           <div className = "app__loginContainer">
-             <Button onClick ={()=> setOpenSignIn(true)}>SignIn</Button>
-             <Button onClick ={()=> setOpen(true) }>SignUp</Button>
-          </div>
-          ) }
-         <h2> instagram clone gonna be a fun! </h2>
+                { user ? (
+                    <Button onClick={()=>auth.signOut()}>Logout</Button>
+                    ):
+                   (
+            
+                    <div className = "app__loginContainer">
+                    <Button onClick ={()=> setOpenSignIn(true)}>SignIn</Button>
+                    <Button onClick ={()=> setOpen(true) }>SignUp</Button>
+                    </div>
+                  )
+                }
+                            
          
-      
-       {posts.map(({id,post}) => ( 
-         <Post key = {id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}
-       />))} 
-       <Post username="karthi" caption="that's cool..." imageUrl="basic.png" /> 
+                       <div classname = "app__posts">
+                         <div classname = "app_postsLeft">
+                           {
+                           posts.map(({id,post}) => ( 
+                             <Post key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+                           ))} 
+                            
+                           <div/>
+                        <div className = "app__postsRight">
+                          <InstagramEmbed
+                             url='https://www.instagram.com/p/B_uf9dmAGPw/'
+                              maxwidth = {320}
+                              hideCaption = {false}
+                              containerTagName='div'
+                              protocol=''
+                              injectScript
+                              onLoading={() => {}}
+                              onSuccess={() => {}}
+                              onAfterRender={() => {}}
+                              onFailure={() => {}} >
+                              </InstagramEmbed>
+                         </div>
+                        </div>
        
-     <Post username="dinesh" caption="awesome mannn" imageUrl="basic.png" />
-     <Post  username="jey" caption="good to see its working" imageUrl="basic.png" />
-   
+
+
+                        
+                      
+                        {user?.displayName ? 
+                    
+                       (
+                        <ImageUpload username={user.displayName}/>
+                          ): 
+                          (
+                            <center>
+                              <h3>Login to Upload</h3>
+                            </center>
+                          )
+     }
+
      </div>
-    </div>  
+  </div>  
+
+</div>
     )}
-
-
+     
 export default App;

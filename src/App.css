@@ -2,23 +2,24 @@
   margin : 0;
 }
 .app {
-  background-color: lightgray;
-
-}
-
-
-.root{
+  background-color:#fafafa;
+  
+  display: flex;
+  justify-content: space-between;
   width: 50%;
-  margin: 0 auto;
 }
-
 .app__header {
   background-color:white; 
-  padding:5px; 
-  border-bottom:1px solid lightgray;
-  object-fit:contain;
+  padding:10px; 
+  border-bottom:5px solid gray;
+  object-fit:center;
+  
+  justify-content: space-between;
+ 
    }
-
+.app__headerImage {
+  object-fit: contain;
+}
 .app__signup__btn > * {
   display: block !important;
   margin: 20px auto !important; 
@@ -26,7 +27,14 @@
 .app__signup {
   display: flex;
   flex-direction: column;
-
+ 
 }
-
-
+.app__posts {
+  padding-left:  left 10px;
+  background-color:darkcyan;
+  display: flex;
+  justify-content: center;
+}
+.app__postsRight {
+   margin: left 10px;
+}
