@@ -6,18 +6,20 @@
   
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  
 }
 .app__header {
-  background-color:white; 
+   background-color:white; 
   padding:10px; 
-  border-bottom:5px solid gray;
-  object-fit:center;
+  position: sticky; 
+  top: 0;
+  z-index: 1;
   
-  justify-content: space-between;
- 
+
    }
 .app__headerImage {
+  border-bottom:5px solid gray;
+   flex: auto;
   object-fit: contain;
 }
 .app__signup__btn > * {
@@ -37,4 +39,8 @@
 }
 .app__postsRight {
    margin: left 10px;
+}
+.app__loginContainer {
+  position: sticky;
+  border-top-left-radius: 0;
 }

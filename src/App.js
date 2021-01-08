@@ -102,6 +102,23 @@ useEffect(() => {
       
       <div className="app"> 
        
+       <div className="app__header">
+      
+                 <img  className="app__headerImage" src="new1.png" alt=""></img> 
+      
+       
+                { user ? (
+                    <Button onClick={()=>auth.signOut()}>Logout</Button>
+                    ):
+                   (
+            
+                    <div>
+                    <Button onClick ={()=> setOpenSignIn(true)}>SignIn</Button>
+                    <Button onClick ={()=> setOpen(true) }>SignUp</Button>
+                    </div>
+                  )
+                }
+               
 
             
         <Modal
@@ -142,29 +159,13 @@ useEffect(() => {
                  
                </Modal> 
       
-               <div className="app__header">
-      
-                 <img  className="app__headerImage" src="new1.png" alt=""></img> 
-      
-       
-                { user ? (
-                    <Button onClick={()=>auth.signOut()}>Logout</Button>
-                    ):
-                   (
-            
-                    <div className = "app__loginContainer">
-                    <Button onClick ={()=> setOpenSignIn(true)}>SignIn</Button>
-                    <Button onClick ={()=> setOpen(true) }>SignUp</Button>
-                    </div>
-                  )
-                }
                             
          
                        <div classname = "app__posts">
                          <div classname = "app_postsLeft">
                            {
                            posts.map(({id,post}) => ( 
-                             <Post key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+                             <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
                            ))} 
                             
                            <div/>

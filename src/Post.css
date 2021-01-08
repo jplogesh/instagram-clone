@@ -1,7 +1,7 @@
 .post {
-    background-color: white;
+    background-color:white;
     
-    max-width: 500px;
+    max-width: 30%;
     border: 1px solid lightgray ;
     margin-bottom: 30px;   
     margin-top: 15px;
@@ -27,4 +27,22 @@ display: flex;
 .post__avatar {
     margin-right: 10px;
     text-align: center;
+}
+.post__commentBox {
+    display: flex;
+    margin-top: 10px;
+}
+.post__input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-top: 1px solid lightgray ;
+}
+.post__button {
+    flex: 0;
+    border: none;
+    color:midnightblue;
+}.post__comments {
+    padding: 20px;
+    
 }

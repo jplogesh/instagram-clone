@@ -1,9 +1,12 @@
 .ImageUpload {
-     position: fixed;
        
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
    
-}                                                                                                   
+}
+
+progress{
+   width: 100%;
+}
