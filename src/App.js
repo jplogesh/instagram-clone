@@ -33,7 +33,7 @@ function App() {
   const classes= useStyles();
   const [modalStyle]=useState(getModalStyle);
   const [posts, setPosts] =useState([]);
-  const [open, setOpen] =useState(false);
+  const [OpenSignUp, setOpenSignUp] =useState(false);
   const[OpenSignIn,setOpenSignIn] =useState(false); 
   const [username,setUsername]=useState('');
   const [email,setEmail]=useState('');
@@ -84,7 +84,7 @@ useEffect(() => {
        })
      })
      .catch((error)=>alert(error.message));
-     setOpen(false);
+     setOpenSignUp(false);
     }
     const SignIn = (event) =>{
        event.preventDefault();
@@ -113,8 +113,8 @@ useEffect(() => {
                    (
             
                     <div>
-                    <Button onClick ={()=> setOpenSignIn(true)}>SignIn</Button>
-                    <Button onClick ={()=> setOpen(true) }>SignUp</Button>
+                      <Button onClick ={()=> setOpenSignIn(true)}>Log In</Button>
+                    
                     </div>
                   )
                 }
@@ -122,6 +122,9 @@ useEffect(() => {
 
             
         <Modal
+        
+        open={OpenSignUp}
+       onClose={()=>setOpenSignUp(false)}
         open={OpenSignIn}
        onClose={()=>setOpenSignIn(false)} >
        
@@ -151,6 +154,8 @@ useEffect(() => {
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 />
+                <Button  type='submit' onClick = {SignUp}>SignUp</Button>
+                
                <Button  type='submit' onClick = {SignIn}>SignIn</Button>
                 </center>
                   </form>
@@ -162,27 +167,15 @@ useEffect(() => {
                             
          
                        <div classname = "app__posts">
-                         <div classname = "app_postsLeft">
+                         
                            {
                            posts.map(({id,post}) => ( 
                              <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
                            ))} 
                             
-                           <div/>
-                        <div className = "app__postsRight">
-                          <InstagramEmbed
-                             url='https://www.instagram.com/p/B_uf9dmAGPw/'
-                              maxwidth = {320}
-                              hideCaption = {false}
-                              containerTagName='div'
-                              protocol=''
-                              injectScript
-                              onLoading={() => {}}
-                              onSuccess={() => {}}
-                              onAfterRender={() => {}}
-                              onFailure={() => {}} >
-                              </InstagramEmbed>
-                         </div>
+                           
+                        
+                          
                         </div>
        
 
@@ -202,7 +195,7 @@ useEffect(() => {
      }
 
      </div>
-  </div>  
+  
 
 </div>
     )}

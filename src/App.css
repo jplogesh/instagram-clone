@@ -18,9 +18,10 @@
 
    }
 .app__headerImage {
-  border-bottom:5px solid gray;
-   flex: auto;
+  position: sticky;
+  border-top-left-radius: 0;
   object-fit: contain;
+  justify-content: space-between;
 }
 .app__signup__btn > * {
   display: block !important;

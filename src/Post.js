@@ -48,7 +48,7 @@ function Post({ postId ,user, username, caption, imageUrl}) {
               <h3>{username}</h3>
          
           </div> 
-
+            
            <img  className = "post__image"  src= {imageUrl} alt="" />
             <h4 className = "post__text"><strong>{username}</strong> {caption}</h4>
            <div className = "post__comments">
@@ -57,7 +57,9 @@ function Post({ postId ,user, username, caption, imageUrl}) {
                   <strong> {comment.username} </strong> {comment.text}
                 </p>
               ))}
+             
            </div> 
+           
               { user && (
           <form className = "post__commentBox">
             <input
