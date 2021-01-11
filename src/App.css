@@ -45,3 +45,9 @@
   position: sticky;
   border-top-left-radius: 0;
 }
+.muiInput_login {
+  display: initial !important;
+  margin: 20px 40px;
+  
+  
+}

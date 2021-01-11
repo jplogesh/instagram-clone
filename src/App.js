@@ -135,8 +135,9 @@ useEffect(() => {
              <div className = "app__header"></div>
            <img  className="app__headerImage" src="new1.png" alt=""></img> 
             
-           
+           <div className="muiInput-root">
              <Input
+             className="muiInput_login"
               placeholder='username'
               type ="text"
               value= {username}
@@ -145,18 +146,23 @@ useEffect(() => {
              <Input
                placeholder='email'
                type= 'text'
+               
+             className="muiInput_login"
                 value={email}
                onChange={(e)=>setEmail(e.target.value)}
                />
               <Input 
                 placeholder ='password'
                 type='password'
+                
+             className="muiInput_login"
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 />
-                <Button  type='submit' onClick = {SignUp}>SignUp</Button>
-                
                <Button  type='submit' onClick = {SignIn}>SignIn</Button>
+                <Button  type='submit' onClick = {SignUp}>SignUp</Button>
+                </div>
+               
                 </center>
                   </form>
                 
